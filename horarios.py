@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import os
 
 # Cargar el archivo XLSX (reemplaza 'mi_archivo.xlsx' con la ruta de tu archivo)
 archivo_xlsx = 'datos_distancia.xlsx'
