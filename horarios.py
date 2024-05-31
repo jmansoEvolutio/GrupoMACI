@@ -9,7 +9,7 @@ data = pd.read_excel(file_path)
 dropdown_options = data.to_dict('records')
 
 # Organiza los elementos en dos columnas
-left_column, right_column = st.columns(2)
+left_column, right_column = st.columns([1, 2])  # Cambio en la especificación de ancho
 
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
@@ -19,7 +19,7 @@ with left_column:
 with right_column:
     if selected_rows:
         st.write('Tabla de datos acumulados:')
-        st.dataframe(pd.DataFrame(selected_rows), width=None)  # Cambio a st.dataframe()
+        st.dataframe(pd.DataFrame(selected_rows), width=None)
 
         # Suma los datos de la columna "tiempo"
         total_tiempo = sum(row['tiempo'] for row in selected_rows)
