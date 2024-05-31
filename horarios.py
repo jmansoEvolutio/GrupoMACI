@@ -2,17 +2,20 @@ import pandas as pd
 import streamlit as st
 import os
 
-# Cargar el archivo XLSX (reemplaza 'mi_archivo.xlsx' con la ruta de tu archivo)
-archivo_xlsx = 'datos_distancia.xlsx'
-df = pd.read_excel(archivo_xlsx)
+# Cargar el archivo XLSX
+@st.cache
+def cargar_datos():
+    df = pd.read_excel("datos_distancia.xlsx")
+    return df
 
-# Crear una lista desplegable con las columnas del DataFrame
-columna_seleccionada = st.selectbox("Selecciona una columna:", df.columns)
+df = cargar_datos()
 
-# Filtrar los datos según la columna seleccionada
-datos_filtrados = df[columna_seleccionada]
+# Crear una lista desplegable con los IDs de cliente
+cliente_seleccionado = st.selectbox("Selecciona un cliente:", df["client_id"])
 
-# Mostrar los datos filtrados en una tabla
-st.write(f"Datos de la columna '{columna_seleccionada}':")
+# Filtrar los datos según el cliente seleccionado
+datos_filtrados = df[df["client_id"] == cliente_seleccionado]
+
+# Mostrar los datos en una tabla
+st.write("Datos del cliente seleccionado:")
 st.write(datos_filtrados)
-
