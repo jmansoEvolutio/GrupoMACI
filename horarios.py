@@ -14,17 +14,13 @@ left_column, right_column = st.columns(2)
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
     selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
-    #selected_option = st.selectbox('Selecciona una fila:', dropdown_options)
-    #st.write('Detalles de la fila seleccionada:')
-    #st.json(selected_option)
 
 # En la columna derecha, muestra la tabla con las filas seleccionadas
 with right_column:
-    #selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+    
     if selected_rows:
         st.write('Tabla de datos acumulados:')
-        st.table(pd.DataFrame(selected_rows))
-
+        st.dataframe(pd.DataFrame(selected_rows))  # Cambio a st.dataframe()
 
         # Suma los datos de la columna "tiempo"
         total_tiempo = sum(row['tiempo'] for row in selected_rows)
