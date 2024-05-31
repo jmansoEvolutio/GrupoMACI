@@ -43,7 +43,7 @@ data = pd.read_excel(file_path)
 dropdown_options = data.to_dict('records')
 
 # Organiza los elementos en dos columnas
-left_column, right_column = st.beta_columns(2)
+left_column, right_column = st.columns(2)
 
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
