@@ -4,7 +4,7 @@ import pandas as pd
 # Cargar el archivo XLSX
 @st.cache
 def cargar_datos():
-    df = pd.read_excel("ruta/a/tu/archivo.xlsx")
+    df = pd.read_excel("datos_distancia.xlsx")
     return df
 
 df = cargar_datos()
