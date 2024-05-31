@@ -24,3 +24,8 @@ with right_column:
         # Suma los datos de la columna "tiempo"
         total_tiempo = sum(row['tiempo'] for row in selected_rows)
         st.write(f'Tiempo total acumulado: **{total_tiempo}**')
+
+# Ajusta el ancho de las columnas de la tabla
+st.write('Ajusta el ancho de las columnas:')
+st.dataframe(data.style.set_table_styles([{'selector': 'th', 'props': [('max-width', '150px')]}]))
+
