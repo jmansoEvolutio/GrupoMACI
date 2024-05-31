@@ -17,7 +17,6 @@ with left_column:
 
 # En la columna derecha, muestra la tabla con las filas seleccionadas
 with right_column:
-    
     if selected_rows:
         st.write('Tabla de datos acumulados:')
         st.dataframe(pd.DataFrame(selected_rows))  # Cambio a st.dataframe()
