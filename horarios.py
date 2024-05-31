@@ -16,12 +16,12 @@ dropdown_options = data.to_dict('records')
 #st.json(selected_option)
 
 # Crea una tabla para mostrar los datos de todas las filas seleccionadas
-#selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
 if selected_rows:
     st.write('Tabla de datos acumulados:')
     st.table(pd.DataFrame(selected_rows))
 
-selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+#selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
 
 # Añade un botón para deseleccionar todas las filas
 #if st.button('Deseleccionar todas las filas'):
