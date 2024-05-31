@@ -5,12 +5,12 @@ import os
 # Cargar el archivo XLSX
 @st.cache
 def load_data():
-    df = pd.read_excel('datos_distancia.xlsx')
+    df = pd.read_excel('ruta/a/tu/archivo.xlsx')
     return df
 
 df = load_data()
 
-# Crear una lista desplegable con todos los valores de la fila
+# Crear una lista desplegable con todos los valores de cada fila
 selected_row = st.selectbox('Selecciona una fila:', df.index)
 
 # Filtrar los datos según la fila seleccionada
