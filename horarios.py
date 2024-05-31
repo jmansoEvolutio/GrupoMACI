@@ -1,7 +1,3 @@
-#import pandas as pd
-#import streamlit as st
-#import os
-
 import streamlit as st
 import pandas as pd
 
@@ -25,5 +21,6 @@ fila_seleccionada = st.selectbox("Selecciona una fila:", columnas_concatenadas)
 # Crear una tabla para mostrar los datos seleccionados
 st.write("Datos seleccionados:")
 st.table(df.loc[df.apply(lambda row: any(val in fila_seleccionada for val in row.values), axis=1)])
+
 
 
