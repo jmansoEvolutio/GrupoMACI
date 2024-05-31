@@ -4,23 +4,20 @@ import os
 
 # Cargar el archivo XLSX
 @st.cache
-def load_data():
-    df = pd.read_excel('datos_distancia.xlsx')
+def cargar_datos():
+    df = pd.read_excel("datos_distancia.xlsx")
     return df
 
-df = load_data()
+df = cargar_datos()
 
-# Crear una lista desplegable con todos los valores de cada fila
-selected_row = st.selectbox('Selecciona una fila:', df.index)
+# Crear una lista desplegable con los valores concatenados de cada fila
+fila_seleccionada = st.selectbox("Selecciona una fila:", df.index)
+valores_fila = df.iloc[fila_seleccionada].values
+valores_concatenados = " | ".join(map(str, valores_fila))
 
-# Filtrar los datos según la fila seleccionada
-filtered_data = df.loc[selected_row]
+st.write(f"Valores seleccionados: {valores_concatenados}")
 
-# Mostrar los datos en una tabla
-st.table(filtered_data)
-
-# Acumular los datos seleccionados en una tabla
-st.write('Datos seleccionados:')
-st.dataframe(filtered_data)
-
+# Crear una tabla para mostrar los datos seleccionados
+st.write("Datos seleccionados:")
+st.table(df.loc[df.index.isin(range(fila_seleccionada + 1))])
 
