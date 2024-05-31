@@ -15,10 +15,11 @@
 #st.write('Detalles de la fila seleccionada:')
 #st.json(selected_option)
 
-# Crea una tabla para mostrar los datos de la fila seleccionada
-#st.write('Tabla de datos:')
-#st.table(pd.DataFrame(selected_option, index=[0]))
-
+# Crea una tabla para mostrar los datos de todas las filas seleccionadas
+#selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+#if selected_rows:
+ #   st.write('Tabla de datos acumulados:')
+  #  st.table(pd.DataFrame(selected_rows))
 
 import streamlit as st
 import pandas as pd
@@ -31,14 +32,23 @@ data = pd.read_excel(file_path)
 dropdown_options = data.to_dict('records')
 
 # Crea un menú desplegable para seleccionar una fila del archivo xlsx
-#selected_option = st.selectbox('Selecciona una fila:', dropdown_options)
+selected_option = st.selectbox('Selecciona una fila:', dropdown_options)
 
 # Muestra los detalles de la opción seleccionada
-#st.write('Detalles de la fila seleccionada:')
-#st.json(selected_option)
+st.write('Detalles de la fila seleccionada:')
+st.json(selected_option)
 
 # Crea una tabla para mostrar los datos de todas las filas seleccionadas
 selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
 if selected_rows:
     st.write('Tabla de datos acumulados:')
     st.table(pd.DataFrame(selected_rows))
+
+# Añade un botón para deseleccionar todas las filas
+if st.button('Deseleccionar todas las filas'):
+    selected_rows = []
+
+# Muestra los detalles de las filas deseleccionadas
+if selected_rows:
+    st.write('Filas deseleccionadas:')
+    st.json(selected_rows)
