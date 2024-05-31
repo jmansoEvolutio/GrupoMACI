@@ -24,3 +24,8 @@ with right_column:
     if selected_rows:
         st.write('Tabla de datos acumulados:')
         st.table(pd.DataFrame(selected_rows))
+
+
+        # Suma los datos de la columna "tiempo"
+        total_tiempo = sum(row['tiempo'] for row in selected_rows)
+        st.write(f'Tiempo total acumulado: **{total_tiempo}**')
