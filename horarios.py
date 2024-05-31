@@ -17,4 +17,4 @@ st.json(selected_option)
 
 # Crea una tabla para mostrar los datos de la fila seleccionada
 st.write('Tabla de datos:')
-st.table(pd.DataFrame(selected_option))
+st.table(pd.DataFrame(selected_option, index=[0]))
