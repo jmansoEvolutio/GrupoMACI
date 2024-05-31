@@ -16,5 +16,11 @@ st.write('Detalles de la fila seleccionada:')
 st.json(selected_option)
 
 # Crea una tabla para mostrar los datos de la fila seleccionada
-st.write('Tabla de datos:')
-st.table(pd.DataFrame(selected_option, index=[0]))
+#st.write('Tabla de datos:')
+#st.table(pd.DataFrame(selected_option, index=[0]))
+
+# Crea una tabla para mostrar los datos de todas las filas seleccionadas
+selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+if selected_rows:
+    st.write('Tabla de datos acumulados:')
+    st.table(pd.DataFrame(selected_rows))
