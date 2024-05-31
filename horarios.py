@@ -49,6 +49,6 @@ if st.button('Deseleccionar todas las filas'):
     selected_rows = []
 
 # Muestra los detalles de las filas deseleccionadas
-if selected_rows:
-    st.write('Filas deseleccionadas:')
-    st.json(selected_rows)
+#if selected_rows:
+#    st.write('Filas deseleccionadas:')
+ #   st.json(selected_rows)
