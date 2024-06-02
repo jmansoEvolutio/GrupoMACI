@@ -13,14 +13,14 @@ left_column, right_column = st.columns([1, 2])  # Cambio en la especificación d
 
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
-    selected_rows = st.multiselect('Selecciona filas adicionales:', dropdown_options)
+    selected_rows = st.multiselect('Selecciona comunidades a insertar:', dropdown_options)
 
 # En la columna derecha, muestra la tabla con las filas seleccionadas
 with right_column:
     if selected_rows:
-        st.write('Tabla de datos acumulados:')
+        st.write('Comunidades seleccionadas:')
         st.dataframe(pd.DataFrame(selected_rows), width=None)
 
         # Suma los datos de la columna "tiempo"
         total_tiempo = sum(row['tiempo'] for row in selected_rows)
-        st.write(f'Tiempo total acumulado: **{total_tiempo}**')
+        st.write(f'Tiempo total: **{total_tiempo}**')
