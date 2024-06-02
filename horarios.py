@@ -6,7 +6,8 @@ file_path = 'datos_distancia.xlsx'  # Reemplaza con la ruta de tu archivo xlsx
 data = pd.read_excel(file_path)
 
 # Crea una lista de diccionarios, cada uno con los datos de una fila
-dropdown_options = data.to_dict('records')
+dropdown_options_1 = data.to_dict('records')
+dropdown_options = dropdown_options_1.values()
 
 # Organiza los elementos en dos columnas
 left_column, right_column = st.columns([1, 2])  # Cambio en la especificación de ancho
