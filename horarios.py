@@ -8,7 +8,6 @@ data = pd.read_excel(file_path)
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data.to_dict('records')
 
-
 # Organiza los elementos en dos columnas
 left_column, right_column = st.columns([1, 2])  # Cambio en la especificación de ancho
 
