@@ -41,6 +41,9 @@ with right_column:
     
     # Calcula la suma de la columna "tiempo" para las filas seleccionadas
     if selected_rows:
-        tiempo_sum = sum(row['tiempo'] for row in selected_rows)
+        tiempo_sum = 0
+        for row in selected_rows:
+            tiempo_sum += row['tiempo']
         st.write(f'Suma de tiempo: {tiempo_sum:.2f}')
+
 
