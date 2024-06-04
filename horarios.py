@@ -27,7 +27,7 @@ with left_column:
 with right_column:
     if selected_rows:
         st.write('Comunidades seleccionadas:')
-        st.dataframe(pd.DataFrame(selected_rows), width=None)
+        st.dataframe(pd.DataFrame(selected_rows, columns=selected_columns), width=None)
 
         # Suma los datos de la columna "tiempo"
         total_tiempo = sum(row['tiempo'] for row in selected_rows)
