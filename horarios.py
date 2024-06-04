@@ -13,6 +13,9 @@ data.drop(data.columns[0], axis=1, inplace=True)
 selected_columns = ['client_id', 'client_id_destino', 'distancia', 'unidad_metrica', 'tiempo', 'unidad_temporal']
 data_filtered = data[selected_columns]
 
+# Reemplaza los valores None con 0
+data_filtered.fillna(0, inplace=True)
+
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data_filtered.to_numpy().tolist()
 
