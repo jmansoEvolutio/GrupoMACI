@@ -46,4 +46,7 @@ with right_column:
             tiempo_sum += row[4]
         st.write(f'Suma de tiempo: {tiempo_sum:.2f}')
 
-
+    # Calcula los minutos equivalentes a 8 horas
+    if selected_rows:
+        minutos_8_horas = 8 * 60
+        st.write(f'Minutos equivalentes a 8 horas: {minutos_8_horas} minutos')
