@@ -13,7 +13,7 @@ data.drop(columns=['distancia_metros', 'distancia_minutos'], inplace=True)
 
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data.to_dict('records')
-st.write('Data: ', dropdown_options[0].item())
+st.write('Data: ', dropdown_options[0].items())
 
 # Organiza los elementos en dos columnas
 left_column, right_column = st.columns([1, 1.5], gap = "large")  # Cambio en la especificación de ancho
