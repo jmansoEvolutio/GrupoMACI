@@ -16,6 +16,9 @@ data_filtered = data[selected_columns]
 # Reemplaza los valores None con 0
 data_filtered.fillna(0, inplace=True)
 
+# Convierte la columna "tiempo" a números (si es posible)
+data_filtered['tiempo'] = pd.to_numeric(data_filtered['tiempo'], errors='coerce')
+
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data_filtered.to_numpy().tolist()
 
