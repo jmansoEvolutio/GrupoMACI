@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 # Carga el archivo xlsx
 file_path = 'datos_distancia.xlsx'  # Reemplaza con la ruta de tu archivo xlsx
@@ -12,8 +13,9 @@ data.drop(data.columns[0], axis=1, inplace=True)
 data.drop(columns=['distancia_metros', 'distancia_minutos'], inplace=True)
 
 # Crea una lista de diccionarios, cada uno con los datos de una fila
-dropdown_options = data.to_dict('records')
-st.write('Tipo de dropdown: ', dropdown_options.shape())
+#dropdown_options = data.to_dict('records')
+dropdown_options = data.to_numpy().tolist()
+st.write('Tipo de dropdown: ', dropdown_options)
 #st.write('Data: ', dropdown_options[0].items())
 
 # Organiza los elementos en dos columnas
