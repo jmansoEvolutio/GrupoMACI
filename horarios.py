@@ -8,6 +8,9 @@ data = pd.read_excel(file_path)
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data.to_dict('records')
 
+# Elimina las columnas no deseadas
+data.drop(columns=['distancia_minutos', 'duracion_minutos'], inplace=True)
+
 # Organiza los elementos en dos columnas
 left_column, right_column = st.columns([1, 3], gap = "large")  # Cambio en la especificación de ancho
 
