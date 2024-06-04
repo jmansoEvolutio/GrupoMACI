@@ -43,7 +43,7 @@ with right_column:
     if selected_rows:
         tiempo_sum = 0
         for row in selected_rows:
-            tiempo_sum += row['tiempo']
+            tiempo_sum += row[4]
         st.write(f'Suma de tiempo: {tiempo_sum:.2f}')
 
 
