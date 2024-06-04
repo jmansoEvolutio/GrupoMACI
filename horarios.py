@@ -9,7 +9,7 @@ data = pd.read_excel(file_path)
 dropdown_options = data.to_dict('records')
 
 # Organiza los elementos en dos columnas
-left_column, right_column = st.columns([1, 8], gap = "large")  # Cambio en la especificación de ancho
+left_column, right_column = st.columns([1, 3], gap = "large")  # Cambio en la especificación de ancho
 
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
