@@ -23,7 +23,7 @@ data_filtered['tiempo'] = pd.to_numeric(data_filtered['tiempo'], errors='coerce'
 dropdown_options = data_filtered.to_numpy().tolist()
 
 # Organiza los elementos en dos columnas
-left_column, right_column = st.columns([1, 1.5], gap = "large")  # Cambio en la especificación de ancho
+left_column, right_column = st.columns([1, 1.5], gap="large")
 
 # En la columna izquierda, muestra el menú desplegable
 with left_column:
@@ -35,6 +35,6 @@ with right_column:
         st.write('Comunidades seleccionadas:')
         st.dataframe(pd.DataFrame(selected_rows, columns=selected_columns), width=None)
 
-        # Suma los datos de la columna "tiempo" (asegúrate de convertirlos a números)
-        total_tiempo = sum(float(row['tiempo']) for row in selected_rows)
+        # Suma los datos de la columna "tiempo"
+        total_tiempo = sum(row['tiempo'] for row in selected_rows)
         st.write(f'Tiempo total: **{total_tiempo}**')
