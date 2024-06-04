@@ -9,14 +9,12 @@ data = pd.read_excel(file_path)
 # Elimina la primera columna (índice 0)
 data.drop(data.columns[0], axis=1, inplace=True)
 
-# Elimina las columnas no deseadas
-data.drop(columns=['distancia_metros', 'distancia_minutos'], inplace=True)
+# Selecciona solo las columnas deseadas
+selected_columns = ['client_id', 'client_id_destino', 'distancia', 'unidad_metrica', 'tiempo', 'unidad_temporal']
+data_filtered = data[selected_columns]
 
 # Crea una lista de diccionarios, cada uno con los datos de una fila
-#dropdown_options = data.to_dict('records')
-dropdown_options = data.to_numpy().tolist()
-st.write('Tipo de dropdown: ', dropdown_options)
-#st.write('Data: ', dropdown_options[0].items())
+dropdown_options = data_filtered.to_numpy().tolist()
 
 # Organiza los elementos en dos columnas
 left_column, right_column = st.columns([1, 1.5], gap = "large")  # Cambio en la especificación de ancho
