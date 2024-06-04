@@ -33,5 +33,5 @@ with right_column:
         st.dataframe(pd.DataFrame(selected_rows, columns=selected_columns), width=None)
 
        # Suma los datos de la columna "tiempo"
-     #   total_tiempo = sum(row['tiempo'] for row in selected_rows)
+        total_tiempo = sum(row['tiempo'] for row in selected_rows)
      #   st.write(f'Tiempo total: **{total_tiempo}**')
