@@ -38,3 +38,9 @@ with right_column:
         # Suma los datos de la columna "tiempo"
         #total_tiempo = sum(row['tiempo'] for row in selected_rows)
         #st.write(f'Tiempo total: **{total_tiempo}**')
+    
+    # Calcula la suma de la columna "tiempo" para las filas seleccionadas
+    if selected_rows:
+        tiempo_sum = sum(row['tiempo'] for row in selected_rows)
+        st.write(f'Suma de tiempo: {tiempo_sum:.2f}')
+
