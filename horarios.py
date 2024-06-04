@@ -5,8 +5,11 @@ import pandas as pd
 file_path = 'datos_distancia.xlsx'  # Reemplaza con la ruta de tu archivo xlsx
 data = pd.read_excel(file_path)
 
+# Elimina la primera columna (índice 0)
+data.drop(data.columns[0], axis=1, inplace=True)
+
 # Elimina las columnas no deseadas
-data.drop(columns=['distancia_metros', 'distancia_minutos', 0], inplace=True)
+data.drop(columns=['distancia_metros', 'distancia_minutos'], inplace=True)
 
 # Crea una lista de diccionarios, cada uno con los datos de una fila
 dropdown_options = data.to_dict('records')
